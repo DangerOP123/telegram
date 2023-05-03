@@ -9,9 +9,10 @@ from sys import exit
 
 THREADS = 400
 LOGO = '''
-   ~ مقدمة من عمر الشمري ~
-     ~ مطور: @QQ_W8 ~
-          ~ قناتي: @vv_vz ~
+~ Telegram Auto Views V3 ~
+     ~ Dev: @QQ_W8 ~
+          ~ Ch: @vv_vz ~
+          
         
 '''
 
@@ -34,7 +35,7 @@ def config_loader():
         exit()
 
 def input_loader():
-    url_input = search(r'(https?:\/\/t\.me\/)?([^/]+)/(\d+)', input(' [ INPUT ] رابط المنشور: '))
+    url_input = search(r'(https?:\/\/t\.me\/)?([^/]+)/(\d+)', input(' [ INPUT ] Enter Post URL: '))
     if url_input: 
         _, channel, post = url_input.groups()
         return channel, post
@@ -52,12 +53,10 @@ def display():
     def inner():
         print(LOGO)
         print(f'''
-    [ عدد الارسال ]: {Api.real_views}
-
-    [ أخطاء الرمز المميز ]:   {Api.token_errors}
-    [ بروكسي معطل ]: {Api.proxy_errors}
-
-    [ الروابط ]: {active_count()}
+[ Live Views ]: {Api.real_views}
+    [ Token Errors ]:   {Api.token_errors}
+    [ Proxies Errors ]: {Api.proxy_errors}
+    [ Threads ]: {active_count()}
         ''')
     
     return inner
