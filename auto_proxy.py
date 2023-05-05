@@ -40,7 +40,7 @@ class Proxy:
         (self.http_sources, 'http'), 
         (self.socks4_sources, 'socks4'), 
         (self.socks5_sources, 'socks5') ):
-            thread = Thread(target=self.scrap, args=(*i, ))
+            thread = Thread(target=self.scrap, args=(i, ))
             threads.append(thread)
             thread.start()
         for t in threads:  t.join()
